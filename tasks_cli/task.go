@@ -5,9 +5,7 @@ import (
 	"os"
 )
 
-func main() {
-	default_help :=
-		`task is a CLI for managing your TODOs.
+const default_help = `task is a CLI for managing your TODOs.
 Usage:
 	task [command]
 	
@@ -18,6 +16,7 @@ Available Commands:
 	
 Use "task [command] --help" for more information about a command.`
 
+func main() {
 	args := os.Args[1:]
 
 	if len(args) == 0 {
