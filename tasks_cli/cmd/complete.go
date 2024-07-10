@@ -8,12 +8,12 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var listCmd = &cobra.Command{
-	Use:   "list",
-	Short: "List all of your incomplete tasks",
+var completeCmd = &cobra.Command{
+	Use:   "complete",
+	Short: "List all of your complete tasks",
 	Run: func(cmd *cobra.Command, args []string) {
 
-		tasks, err := db.ListTasks()
+		tasks, err := db.ListComplete()
 		if err != nil {
 			fmt.Println("Something went wrong:", err)
 			os.Exit(1)
@@ -22,7 +22,7 @@ var listCmd = &cobra.Command{
 			fmt.Println("You have no tasks to complete! Why not take a vacation? 🏖")
 			return
 		}
-		fmt.Println("You have the following tasks:")
+		fmt.Println("You have completed the following tasks:")
 		for i, task := range tasks {
 			fmt.Printf("%d. %s\n", i+1, task.Value)
 		}
@@ -30,5 +30,5 @@ var listCmd = &cobra.Command{
 }
 
 func init() {
-	RootCmd.AddCommand(listCmd)
+	RootCmd.AddCommand(completeCmd)
 }
