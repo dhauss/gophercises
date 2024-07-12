@@ -9,7 +9,7 @@ import (
 )
 
 var completeCmd = &cobra.Command{
-	Use:   "complete",
+	Use:   "completed",
 	Short: "List all of your complete tasks",
 	Run: func(cmd *cobra.Command, args []string) {
 
